@@ -83,16 +83,17 @@ function Navbar() {
                 >
                     {isDrawerOpen ? <CloseIcon /> : <MenuIcon />}
                 </IconButton>
-                <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer} sx={{ zIndex: 2 }}>
-                    <List sx={{ width: "80vw", maxWidth: "300px" }}>
+                <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer} PaperProps={{ sx: { backgroundColor: "#F0F6FF" } }} sx={{ zIndex: 2 }}>
+                    <div className="connect-btn-wrapper">
+                        <ConnectButton />
+                    </div>
+                    <List sx={{ width: "80vw", maxWidth: "300px", }}>
                         {navLinks.map((link) => (
                             <ListItem key={link.text}>
                                 <ListItemText primary={link.text} className={link.className} />
                             </ListItem>
                         ))}
-                        <div style={{ marginTop: "auto" }}>
-                            <ConnectButton />
-                        </div>
+
                     </List>
                 </Drawer>
             </div>
