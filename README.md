@@ -14,7 +14,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`![localhost_3000_1234(Samsung Galaxy S8+)](https://user-images.githubusercontent.com/71381980/221266116-d5e391b7-a206-4736-9536-d132c2192e0a.png)
 
 
 Launches the test runner in the interactive watch mode.\
@@ -49,7 +48,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-![Magpie Wombat](https://user-images.githubusercontent.com/71381980/221265872-80b12b45-2489-4766-810c-63b762c09c6f.png)![localhost_3000_1234(Samsung Galaxy S8+) (1)](https://user-images.githubusercontent.com/71381980/221266076-3c3d4d7c-33b8-463b-83eb-13c21cc21c2d.png)
+
 ### Analyzing the Bundle Size
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
