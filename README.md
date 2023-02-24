@@ -1,3 +1,4 @@
+![Magpie Wombat](https://user-images.githubusercontent.com/71381980/221267113-7d98a55f-3e46-4a9c-85c5-f38b7691f7b9.png)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
