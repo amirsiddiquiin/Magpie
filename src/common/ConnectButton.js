@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from '@mui/material/Button';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Web3 from 'web3';
@@ -7,7 +7,6 @@ import Modal from '@mui/material/Modal';
 function ConnectButton() {
     const [walletAddress, setWalletAddress] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isDisconnectModalOpen, setIsDisconnectModalOpen] = useState(false);
 
     async function connectMetamask() {
         if (window.ethereum) {
@@ -26,18 +25,21 @@ function ConnectButton() {
         }
     }
 
-    async function disconnectMetamask() {
-        if (window.ethereum) {
-            try {
-                await window.ethereum.request({ method: 'wallet_disconnect' });
-                console.log('Disconnected from Metamask');
-                setWalletAddress(null);
-                setIsDisconnectModalOpen(false);
-            } catch (error) {
-                console.log(error);
+    useEffect(() => {
+        if (walletAddress) {
+            // Disable connect Metamask button when connected
+            const connectButton = document.getElementById("connect-button");
+            if (connectButton) {
+                connectButton.disabled = true;
+            }
+        } else {
+            // Enable connect Metamask button when disconnected
+            const connectButton = document.getElementById("connect-button");
+            if (connectButton) {
+                connectButton.disabled = false;
             }
         }
-    }
+    }, [walletAddress]);
 
     function shortenAddress(address) {
         if (!address) {
@@ -54,7 +56,7 @@ function ConnectButton() {
                     <span className="Enstyle">
                         EN
                     </span>
-                    <Button variant="contained" style={{ borderRadius: 200 }} endIcon={<KeyboardArrowDownIcon />} onClick={() => setIsModalOpen(true)}>
+                    <Button id="connect-button" variant="contained" style={{ borderRadius: 200 }} endIcon={<KeyboardArrowDownIcon />} onClick={() => setIsModalOpen(true)}>
                         {walletAddress ? shortenAddress(walletAddress) : 'Connect Wallet'}
                     </Button>
                     <img src="images/darkMode.png" style={{ marginLeft: 10 }} />
@@ -76,28 +78,8 @@ function ConnectButton() {
                     </Button>
                 </div>
             </Modal>
-
-            <Modal
-                open={isDisconnectModalOpen}
-                onClose={() => setIsDisconnectModalOpen(false)}
-                aria-labelledby="disconnect-modal-title"
-                aria-describedby="disconnect-modal-description"
-                style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-                <div style={{ backgroundColor: '#FFFFFF', padding: 24, borderRadius: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <h2 id="disconnect-modal-title" style={{ margin: 0, fontSize: 14 }}>Disconnect from Metamask</h2>
-                    <p id="disconnect-modal-description" style={{ margin: '16px 0', textAlign: 'center' }}>Are you sure you want to disconnect from Metamask?</p>
-                    <Button variant="contained" onClick={disconnectMetamask}>
-                        Yes
-                    </Button>
-                    <Button variant="outlined" style={{ marginTop: 8 }} onClick={() => setIsDisconnectModalOpen(false)}>
-                        Cancel
-                    </Button>
-                </div>
-            </Modal>
         </div>
     )
 }
 
 export default ConnectButton
-

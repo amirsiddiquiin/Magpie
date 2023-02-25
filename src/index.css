@@ -216,6 +216,11 @@ code {
   height: 94px;
 }
 
+.column-purchase-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center,
+}
 @media screen and (max-width: 600px) {
   .mobile-navbar {
     display: block !important;
@@ -250,7 +255,7 @@ code {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     color: #0B366B;
-    margin-left: 10px;
+    margin-left: 0px;
   }
 }
 
@@ -263,8 +268,7 @@ code {
     align-items: center;
     text-align: center;
     color: #0B366B;
-    padding: 0px;
-    margin: 0px;
+
   }
 }
 
@@ -277,8 +281,8 @@ code {
     border: 1px solid #74ACFF;
     border-radius: 5px;
     padding: 2px;
-    width: 130px;
-    margin-right: 5px;
+      width: 50%;
+        margin-right: 2px;
   }
 }
 
@@ -293,7 +297,7 @@ code {
 
 @media screen and (max-width: 600px) {
   .icon-wombat {
-    margin-right: 3px;
+    margin-right: 6px;
     height: 25px;
     width: auto;
   }
@@ -412,5 +416,19 @@ code {
 @media screen and (max-width: 576px) {
   .connect-btn-wrapper {
     margin-top: 20px
+  }
+}
+@media screen and (max-width: 576px) {
+  .title1-title2-wrapper {
+    width: 100% important;
+    margin-right: 6px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .column-purchase-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

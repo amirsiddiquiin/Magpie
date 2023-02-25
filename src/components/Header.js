@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { styled } from '@mui/material/styles';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import Button from '@mui/material/Button';
@@ -21,36 +21,52 @@ const ButtonPurchase = styled(Button)({
     },
     '@media screen and (max-width: 768px)': {
         fontSize: 14,
+        fontWeight: 600,
+
         padding: '4px 8px',
-        borderRadius: '4px',
+        borderRadius: '6px',
+        width: "95%",
+        marginTop: 10,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+
     },
     '@media screen and (max-width: 480px)': {
-        fontSize: 12,
+        fontSize: 14,
+        fontWeight: 600,
         padding: '2px 4px',
-        borderRadius: '2px',
+        borderRadius: '6px',
+        width: "95%",
+        marginTop: 10,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
 
 function Header() {
     return (
-        <div>
-            <div className='d-flex w-100'>
-                <div className='d-flex flex-row justify-content-start align-items-center w-100'>
-                    <div className="main-heading">STAKE FUNDS</div>
-                    <div className='header-title2'>Change Protocol</div>
-                    <div className='title3-wrapper'>
-                        <img src="images/coin.png" alt="Wombat Exchange" className="icon-wombat" />
-                        <div className='header-title3'>Wombat Exchange {<KeyboardArrowDownIcon className='drawer-downArrow' />}</div>
+        <div className="row">
+            <div className="col-md-8">
+                <div className="d-flex w-100">
+                    <div className="d-flex flex-row justify-content-start align-items-center title1-title2-wrapper">
+                        <div className="main-heading">STAKE FUNDS</div>
+                        <div className="header-title2">Change Protocol</div>
+                        <div className="title3-wrapper">
+                            <img src="images/coin.png" alt="Wombat Exchange" className="icon-wombat" />
+                            <div className="header-title3">
+                                Wombat Exchange {<KeyboardArrowDownIcon className="drawer-downArrow" />}
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className=' d-flex justify-content-end w-100'>
-                    <ButtonPurchase>
-                        Purchase Insurance
-                    </ButtonPurchase>
-                </div>
+            </div>
+            <div className="col-md-4 col-sm-12 col-lg-4 column-purchase-btn">
+                <ButtonPurchase>Purchase Insurance</ButtonPurchase>
             </div>
         </div>
-    )
+    );
 }
 
-export default Header
+export default Header;
